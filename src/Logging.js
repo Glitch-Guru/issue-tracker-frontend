@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
+import {IssueTrackerClientContext} from "./index";
 
 function Logging(){
+    const client = useContext(IssueTrackerClientContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -14,25 +16,8 @@ function Logging(){
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        const loggingData = {
-            email, password
-        };
-
-        fetch('http://localhost:8080/api/v1/auth/authenticate', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(loggingData),
-        })
-            .then((response) => response.json())
-            .then((data) =>{
-                console.log(data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        client.login({ email, password })
+            .then(() => alert("Logged in successfully"))
     };
     return (
         <div>

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
+import {IssueTrackerClientContext} from "./index";
 
 
 function CreateTicket() {
+
+    const client = useContext(IssueTrackerClientContext);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [status, setStatus] = useState('');
@@ -27,29 +30,8 @@ function CreateTicket() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        var token = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6I…zczfQ.dodQk7Yco91M4ggUhsj08gPlzGUYi08ez_TFb9vy_C8";
-        const ticketData = {
-            title,
-            description,
-            status,
-            assigneeId
-        };
-
-        fetch('http://localhost:8080/api/v1/tickets', {
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer ${encodeURIComponent(token)}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(ticketData),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        client.addTicket({ title, description, status, assigneeId })
+            .then(() => alert("Ticket created successfully"));
     };
     return (
         <div>
@@ -57,24 +39,24 @@ function CreateTicket() {
             <form onSubmit={handleSubmit}>
                 <label>
                     Title:
-                    <input type="text" value={title} onChange={handleTitle} />
+                    <input type="text" value={title} onChange={handleTitle}/>
                 </label>
-                <br />
+                <br/>
                 <label>
                     Description:
-                    <input type="text" value={description} onChange={handleDescription} />
+                    <input type="text" value={description} onChange={handleDescription}/>
                 </label>
-                <br />
+                <br/>
                 <label>
                     Status:
-                    <input type="text" value={status} onChange={handleStatus} />
+                    <input type="text" value={status} onChange={handleStatus}/>
                 </label>
-                <br />
+                <br/>
                 <label>
                     Assigned to:
-                    <input type="text" value={assigneeId} onChange={handleAssigneeId} />
+                    <input type="number" value={assigneeId} onChange={handleAssigneeId}/>
                 </label>
-                <br />
+                <br/>
                 <button type="submit">Create ticket</button>
             </form>
         </div>

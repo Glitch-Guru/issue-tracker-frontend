@@ -18,3 +18,4 @@ You may also see any lint errors in the console.
 
 Log in page : http://localhost:3000/login
 Registration page : http://localhost:3000/register
+Creating ticket page : http://localhost:3000/createticket

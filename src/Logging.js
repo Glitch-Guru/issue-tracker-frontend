@@ -30,7 +30,7 @@ function Logging(){
             <br />
             <label>
                 Password:
-                <input type="text" value={password} onChange={handlePassword} />
+                <input type="password" value={password} onChange={handlePassword} />
             </label>
             <br />
             <button type="submit">Log in</button>

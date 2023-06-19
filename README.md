@@ -16,6 +16,7 @@ You may also see any lint errors in the console.
 
 ### Once you run the application:
 
-Log in page : http://localhost:3000/login
-Registration page : http://localhost:3000/register
-Creating ticket page : http://localhost:3000/createticket
+Log in page : http://localhost:3000/login \
+Registration page : http://localhost:3000/register \
+Creating ticket page : http://localhost:3000/createticket \
+List of the tickets : http://localhost:3000/tickets 

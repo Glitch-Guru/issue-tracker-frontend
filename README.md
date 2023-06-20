@@ -20,4 +20,5 @@ Log in page : http://localhost:3000/login \
 Registration page : http://localhost:3000/register \
 Creating ticket page : http://localhost:3000/createticket \
 List of the tickets : http://localhost:3000/tickets \
-Ticket with id : http://localhost:3000/tickets/:{id}
+Ticket with id : http://localhost:3000/tickets/:{id} \
+Edit ticket with id : http://localhost:3000/edit_ticket/:{id}

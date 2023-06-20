@@ -5,7 +5,7 @@ import Logging from "./Logging";
 import CreateTicket from "./CreateTicket";
 import Tickets from "./Tickets";
 import TicketDetails from "./TicketDetails";
-
+import EditTickets from "./EditTickets";
 
 function NavigationButtons(){
     const navigate = useNavigate();
@@ -39,6 +39,7 @@ function App() {
                     <Route path="/createticket" element={<CreateTicket/>} />
                     <Route path="/tickets" element={<Tickets/>} />
                     <Route path="/tickets/:id" element={<TicketDetails/>}/>
+                    <Route path="/edit_ticket/:id" element={<EditTickets/>}/>
                 </Routes>
             </div>
         </Router>

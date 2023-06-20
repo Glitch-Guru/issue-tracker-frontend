@@ -7,10 +7,7 @@ function TicketDetails() {
     const client = useContext(IssueTrackerClientContext);
     const navigate = useNavigate();
     const [ticket, setTicket] = useState(null);
-    const [status, setStatus] = useState('');
-   /* const [title, setTitle] = useState('');
-    const [assigneeId, setAssigneeId] = useState('');
-    const [description, setDescription] = useState('');*/
+
 
     useEffect(() => {
         fetchTicket();
@@ -27,22 +24,7 @@ function TicketDetails() {
             });
     };
 
-    const handleStatusChange = (event) => {
-        setStatus(event.target.value);
-    };
 
-    const handleUpdateTicket = (event) => {
-        const updatedTicket = {
-            title: ticket.title,
-            description: ticket.description,
-            assigneeId: ticket.assigneeId,
-            status: status
-        };
-
-        client.updateTicket(id, updatedTicket)
-            .then(() => alert("Ticket updated successfully"))
-            .catch((error) => console.error('Error while updating the ticket.', error));
-    };
 
     const handleDeleteTicket = (event) => {
         client.deleteTicket(id)
@@ -51,11 +33,15 @@ function TicketDetails() {
                 navigate('/tickets');
             })
             .catch((error) => console.error('Error while deleting the ticket.', error));
-    }
+    };
 
     const handleListOfTickets = (event) => {
         navigate('/tickets');
-    }
+    };
+
+    const handleEditTicket = (event) => {
+        navigate(`/edit_ticket/${id}`);
+    };
     return (
         <div>
             <h2>Ticket</h2>
@@ -63,15 +49,8 @@ function TicketDetails() {
                 <div>
                     <h3>{ticket.title}</h3>
                     <p>Description: {ticket.description}</p>
-                    <p>Status:
-                        <select value={status} onChange={handleStatusChange}>
-                            <option value="Approved">Approved</option>
-                            <option value="In progress">In progress</option>
-                            <option value="In test">In test</option>
-                            <option value="Closed">Closed</option>
-                            <option value="Rejected">Rejected</option>
-                        </select>
-                        <button onClick={handleUpdateTicket}>Update Status</button>
+                    <p>Status: {ticket.status}
+
                     </p>
 
                     <p>Assignee ID: {ticket.assigneeId}</p>
@@ -79,8 +58,10 @@ function TicketDetails() {
             ) : (
                 <p>No tickets found.</p>
             )}
+            <button onClick={handleEditTicket}>Edit ticket</button>
             <button onClick={handleDeleteTicket}>Delete Ticket</button>
             <button onClick={handleListOfTickets}>See the list of tickets</button>
+
         </div>
     );
 }

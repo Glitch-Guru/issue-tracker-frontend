@@ -1,8 +1,10 @@
 import React, {useContext, useState} from 'react';
 import {IssueTrackerClientContext} from "./index";
+import {useNavigate} from "react-router-dom";
 
 function Logging(){
     const client = useContext(IssueTrackerClientContext);
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -17,7 +19,10 @@ function Logging(){
     const handleSubmit = (e) => {
         e.preventDefault()
         client.login({ email, password })
-            .then(() => alert("Logged in successfully"))
+            .then(() => {
+                alert("Logged in successfully");
+                navigate('/tickets');
+            })
     };
     return (
         <div>

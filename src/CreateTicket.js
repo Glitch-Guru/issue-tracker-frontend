@@ -1,10 +1,12 @@
 import React, {useContext, useState} from 'react';
 import {IssueTrackerClientContext} from "./index";
+import {useNavigate} from "react-router-dom";
 
 
 function CreateTicket() {
 
     const client = useContext(IssueTrackerClientContext);
+    const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [status, setStatus] = useState('');
@@ -31,8 +33,15 @@ function CreateTicket() {
         e.preventDefault();
 
         client.addTicket({ title, description, status, assigneeId })
-            .then(() => alert("Ticket created successfully"));
+            .then(() => {
+                alert("Ticket created successfully");
+                navigate('/tickets');
+            });
     };
+
+    const handleListOfTickets = (e) => {
+        navigate('/tickets');
+    }
     return (
         <div>
             <h2>Create ticket</h2>
@@ -49,7 +58,14 @@ function CreateTicket() {
                 <br/>
                 <label>
                     Status:
-                    <input type="text" value={status} onChange={handleStatus}/>
+                    <select value={status} onChange={handleStatus}>
+                        <option value="">Select status</option>
+                        <option value="New">New</option>
+                        <option value="Approved">Approved</option>
+                        <option value="In progress">In progress</option>
+                        <option value="in test">In test</option>
+                        <option value="closed">Closed</option>
+                    </select>
                 </label>
                 <br/>
                 <label>
@@ -59,6 +75,7 @@ function CreateTicket() {
                 <br/>
                 <button type="submit">Create ticket</button>
             </form>
+            <button onClick={handleListOfTickets}>See the list of tickets</button>
         </div>
     );
 }

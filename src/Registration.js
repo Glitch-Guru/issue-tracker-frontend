@@ -33,7 +33,10 @@ function Registration() {
             .then(() => {
                 alert("Registered successfully");
                 navigate('/login');
-            });
+            })
+            .catch((error) =>
+                alert("User with this email exists.")
+            );
 
     };
 

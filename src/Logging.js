@@ -23,6 +23,11 @@ function Logging(){
                 alert("Logged in successfully");
                 navigate('/tickets');
             })
+            .catch((error) => {
+                alert("Wrong email or password.");
+
+            })
+
     };
     return (
         <div>

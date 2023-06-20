@@ -8,9 +8,7 @@ function TicketDetails() {
     const navigate = useNavigate();
     const [ticket, setTicket] = useState(null);
     const [status, setStatus] = useState('');
-   /* const [title, setTitle] = useState('');
-    const [assigneeId, setAssigneeId] = useState('');
-    const [description, setDescription] = useState('');*/
+  
 
     useEffect(() => {
         fetchTicket();

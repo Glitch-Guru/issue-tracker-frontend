@@ -28,14 +28,14 @@ function Tickets() {
     }
 
     return (
-        <div>
-            <h2>Tickets</h2>
-            <button onClick={handleCreateTicket}>Create new ticket</button>
+        <div class="center">
+            <h2 class="title">Tickets</h2>
+            <button class="button" onClick={handleCreateTicket}>Create new ticket</button>
             {tickets !== null ? (
                 tickets.length > 0 ? (
-                    <ul>
+                    <ul class="ticket-list">
                         {tickets.map((ticket, index) => (
-                            <li key={index}>
+                            <li class = "ticket" key={index}>
                                 <Link to={`/tickets/${ticket.id}`}>
                                     <h3>{ticket.title}</h3>
                                 </Link>

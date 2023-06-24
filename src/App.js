@@ -6,7 +6,7 @@ import CreateTicket from "./CreateTicket";
 import Tickets from "./Tickets";
 import TicketDetails from "./TicketDetails";
 import EditTickets from "./EditTickets";
-
+import './styles.css';
 function NavigationButtons(){
     const navigate = useNavigate();
 
@@ -19,9 +19,10 @@ function NavigationButtons(){
     };
 
     return (
-        <div>
-            <button onClick={handleRegister}>Register</button>
-            <button onClick={handleLogin}>Login</button>
+
+        <div class="center2">
+            <button class="button" onClick={handleRegister}>Register</button>
+            <button class="button" onClick={handleLogin}>Login</button>
         </div>
     );
 }
@@ -31,7 +32,9 @@ function App() {
     return (
 
         <Router>
+
             <div className="App">
+
                 <NavigationButtons />
                 <Routes>
                     <Route path="/register" element={<Registration />} />

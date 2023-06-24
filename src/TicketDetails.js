@@ -43,24 +43,24 @@ function TicketDetails() {
         navigate(`/edit_ticket/${id}`);
     };
     return (
-        <div>
-            <h2>Ticket</h2>
+        <div class="center">
+            <h2 class="title">Ticket</h2>
             {ticket !== null ? (
                 <div>
-                    <h3>{ticket.title}</h3>
-                    <p>Description: {ticket.description}</p>
-                    <p>Status: {ticket.status}
+                    <h3 class="title-smaller">{ticket.title}</h3>
+                    <p class="text">Description: {ticket.description}</p>
+                    <p class="text">Status: {ticket.status}
 
                     </p>
 
-                    <p>Assignee ID: {ticket.assigneeId}</p>
+                    <p class="text">Assignee ID: {ticket.assigneeId}</p>
                 </div>
             ) : (
-                <p>No tickets found.</p>
+                <p class="text">No tickets found.</p>
             )}
-            <button onClick={handleEditTicket}>Edit ticket</button>
-            <button onClick={handleDeleteTicket}>Delete Ticket</button>
-            <button onClick={handleListOfTickets}>See the list of tickets</button>
+            <button class="button" onClick={handleEditTicket}>Edit ticket</button>
+            <button class="button" onClick={handleDeleteTicket}>Delete Ticket</button>
+            <button class="button" onClick={handleListOfTickets}>See the list of tickets</button>
 
         </div>
     );

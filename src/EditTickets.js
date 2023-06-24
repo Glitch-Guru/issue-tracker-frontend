@@ -78,20 +78,20 @@ function EditTickets(){
     }
 
     return (
-        <div>
-            <h2>Edit ticket</h2>
+        <div class="center">
+            <h2 class="title">Edit ticket</h2>
             <form onSubmit={handleUpdateTicket}>
-                <label>
+                <label class="form">
                     Title:
                     <input type="text" value={title} onChange={handleTitle}/>
                 </label>
                 <br/>
-                <label>
+                <label class="form">
                     Description:
                     <input type="text" value={description} onChange={handleDescription}/>
                 </label>
                 <br/>
-                <label>
+                <label class="form">
                     Status:
                     <select value={status} onChange={handleStatus}>
                         <option value="Approved">Approved</option>
@@ -102,16 +102,16 @@ function EditTickets(){
                     </select>
                 </label>
                 <br/>
-                <label>
+                <label class="form">
                     Assigned to:
                     <input type="number" value={assigneeId} onChange={handleAssigneeId}/>
                 </label>
                 <br/>
-                <button type="submit">Update ticket</button>
+                <button class="button" type="submit">Update ticket</button>
             </form>
 
-            <button onClick={handleDeleteTicket}>Delete Ticket</button>
-            <button onClick={handleCancelation}>Cancel changes</button>
+            <button class="button" onClick={handleDeleteTicket}>Delete Ticket</button>
+            <button class="button" onClick={handleCancelation}>Cancel changes</button>
 
         </div>
     );

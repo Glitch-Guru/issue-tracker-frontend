@@ -30,21 +30,25 @@ function Logging(){
 
     };
     return (
-        <div>
-            <h2>Log in</h2>
+        <div class="center">
+            <div class="div">
+            <h2 class="title">Log in</h2>
+            </div >
+            <div class="div">
         <form onSubmit={handleSubmit}>
-            <label>
+            <label class="form" >
                 Email:
                 <input type="text" value={email} onChange={handleEmail} />
             </label>
             <br />
-            <label>
+            <label class="form">
                 Password:
                 <input type="password" value={password} onChange={handlePassword} />
             </label>
             <br />
-            <button type="submit">Log in</button>
+            <button class = "button" type="submit">Log in</button>
         </form>
+            </div>
         </div>
     )
 }

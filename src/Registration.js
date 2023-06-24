@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {IssueTrackerClientContext} from "./index";
 import {useNavigate} from "react-router-dom";
-
+import './styles.css';
 function Registration() {
 
     const client = useContext(IssueTrackerClientContext);
@@ -41,31 +41,35 @@ function Registration() {
     };
 
     return (
-        <div>
-            <h2>Register user</h2>
+        <div class="center">
+            <div class="div">
+            <h2 class="title">Register user</h2>
+            </div>
+            <div class="div">
             <form onSubmit={handleSubmit}>
-                <label>
+                <label class="form">
                     First Name:
                     <input type="text" value={firstName} onChange={handleFirstNameChange}/>
                 </label>
                 <br/>
-                <label>
+                <label class="form">
                     Last Name:
                     <input type="text" value={lastName} onChange={handleLastNameChange}/>
                 </label>
                 <br/>
-                <label>
+                <label class="form">
                     Email:
                     <input type="email" value={email} onChange={handleEmailChange}/>
                 </label>
                 <br/>
-                <label>
+                <label class="form">
                     Password:
                     <input type="password" value={password} onChange={handlePasswordChange}/>
                 </label>
                 <br/>
-                <button type="submit">Register</button>
+                <button class="button" type="submit">Register</button>
             </form>
+            </div>
         </div>
     );
 }

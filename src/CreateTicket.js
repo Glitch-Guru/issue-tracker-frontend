@@ -43,20 +43,20 @@ function CreateTicket() {
         navigate('/tickets');
     }
     return (
-        <div>
-            <h2>Create ticket</h2>
+        <div class="center">
+            <h2 class="title">Create ticket</h2>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label class="form">
                     Title:
                     <input type="text" value={title} onChange={handleTitle}/>
                 </label>
                 <br/>
-                <label>
+                <label class="form">
                     Description:
                     <input type="text" value={description} onChange={handleDescription}/>
                 </label>
                 <br/>
-                <label>
+                <label class="form">
                     Status:
                     <select value={status} onChange={handleStatus}>
                         <option value="">Select status</option>
@@ -68,14 +68,14 @@ function CreateTicket() {
                     </select>
                 </label>
                 <br/>
-                <label>
+                <label class="form">
                     Assigned to:
                     <input type="number" value={assigneeId} onChange={handleAssigneeId}/>
                 </label>
                 <br/>
-                <button type="submit">Create ticket</button>
+                <button class="button" type="submit">Create ticket</button>
             </form>
-            <button onClick={handleListOfTickets}>See the list of tickets</button>
+            <button class="button" onClick={handleListOfTickets}>See the list of tickets</button>
         </div>
     );
 }
